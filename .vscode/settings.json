@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.css": "css",
+        "css": "css",
+        "js": "js"
+      },
+    // "editor.colorDecorators": true,
+    "[javascript][javascriptreact]": {
+        "editor.colorDecorators": true
+      },
+    "vs-color-picker.autoLaunch": true
+}
+
