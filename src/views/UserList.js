@@ -8,7 +8,7 @@ import UsersContext from '../context/UsersContext'
 
 export default props => {
 
-  const { state }= useContext(UsersContext)
+  const { state, dispatch }= useContext(UsersContext)
   
   const [, setShowBox] = useState(true)
   
@@ -17,6 +17,11 @@ export default props => {
       {
         text: 'Sim',
         onPress(){
+          dispatch({
+            type: 'deleteUser', 
+            payload: user
+          })
+          
           Alert.alert(null, 'Usuário excluído com sucesso!', [
             {
               text: 'Ok',

@@ -9,7 +9,7 @@ import { UsersProvider } from './context/UsersContext'
 
 const Stack = createNativeStackNavigator()
 
-export default propos => {
+export default props => {
   return(
     <UsersProvider>
       <NavigationContainer>
