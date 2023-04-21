@@ -1,5 +1,5 @@
 
-import react from 'react'
+import react, { useState } from 'react'
 import { View, Text, FlatList, Alert } from 'react-native'
 import users from '../data/users'
 import { Avatar  } from '@rneui/themed'
@@ -8,12 +8,19 @@ import { ListItemContent } from '@rneui/base/dist/ListItem/ListItem.Content'
 
 export default props => {
 
+  const [showBox, setShowBox] = useState(true)
+
   function confirmUserDeletion(user) {
     Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
       {
         text: 'Sim',
         onPress(){
-          console.warn('delete ' + user.id)
+          Alert.alert(null, 'Usuário excluído com sucesso!', [
+            {
+              text: 'Ok',
+              onPress(){setShowBox(false)}
+            }
+          ])
         }
       },
       {
