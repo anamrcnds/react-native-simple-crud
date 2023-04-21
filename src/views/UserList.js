@@ -1,15 +1,17 @@
 
-import react, { useState } from 'react'
+import react, { useState, useContext } from 'react'
 import { View, Text, FlatList, Alert } from 'react-native'
-import users from '../data/users'
 import { Avatar  } from '@rneui/themed'
 import { Button, Icon, ListItem } from 'react-native-elements'
 import { ListItemContent } from '@rneui/base/dist/ListItem/ListItem.Content'
+import UsersContext from '../context/UsersContext'
 
 export default props => {
 
-  const [showBox, setShowBox] = useState(true)
-
+  const { state }= useContext(UsersContext)
+  
+  const [, setShowBox] = useState(true)
+  
   function confirmUserDeletion(user) {
     Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
       {
@@ -59,7 +61,7 @@ export default props => {
     <View>
       <FlatList
         keyExtractor={user => user.id}
-        data={users}
+        data={state.users}
         renderItem={getUserItem}
       />
     </View>

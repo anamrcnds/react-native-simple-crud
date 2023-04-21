@@ -2,32 +2,35 @@ import React, { useState } from 'react'
 import { Text, View, TextInput, StyleSheet, Button, Alert} from 'react-native'
 
 export default ({route, navigation}) => {
-   const [user, setUser] =  useState(route.params ? route.params : {})
-   const [showBox, setShowBox] = useState(true);
-   
+   const [user,] =  useState(route.params ? route.params : {})
+   const [, setShowBox] = useState(true)
+   const [email, onChangeEmail] = useState(user.email)
+   const [name, onChangeName] = useState(user.name)
+   const [avatarUrl, onChangeAvatarUrl] = useState(user.avatarUrl)
+
    return(
-     <View style={style.form}>
+    <View style={style.form}>
       <Text>Nome</Text>
       <TextInput 
         style={style.input}
-        onChangeText={name => setUser({...user}, name)}
+        onChangeText={onChangeName}
         placeholder='Informe o nome'
-        value={user.name}
+        value={name}
       />
       <Text>Email</Text>
       <TextInput 
         style={style.input}
-        onChangeText={email => setUser({...user}, email)}
+        onChangeText={onChangeEmail}
         placeholder='Informe o e-mail'
-        value={user.email}
+        value={email}
       />
       <Text>URL do Avatar</Text>
       <TextInput 
         style={style.input}
-        onChangeText={avatarUrl => setUser({...user}, avatarUrl)}
+        onChangeText={onChangeAvatarUrl}
         placeholder='Informe o e-mail'
-        value={user.avatarUrl}
-        />
+        value={avatarUrl}
+      />
       <Button 
         title='Salvar'
         onPress={()=>{
@@ -40,7 +43,7 @@ export default ({route, navigation}) => {
             }
           ],)
         }}
-        />
+      />
     </View>
   )
 }
