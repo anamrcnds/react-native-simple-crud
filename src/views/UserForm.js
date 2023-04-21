@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, StyleSheet, Button} from 'react-native'
+import { Text, View, TextInput, StyleSheet, Button, Alert} from 'react-native'
 
 export default ({route, navigation}) => {
    const [user, setUser] =  useState(route.params ? route.params : {})
-    
-  return(
-    <View style={style.form}>
+   const [showBox, setShowBox] = useState(true);
+   
+   return(
+     <View style={style.form}>
       <Text>Nome</Text>
       <TextInput 
         style={style.input}
@@ -26,13 +27,20 @@ export default ({route, navigation}) => {
         onChangeText={avatarUrl => setUser({...user}, avatarUrl)}
         placeholder='Informe o e-mail'
         value={user.avatarUrl}
-      />
+        />
       <Button 
         title='Salvar'
         onPress={()=>{
-          navigation.goBack()
+          Alert.alert(null, 'Usuário salvo com sucesso!', [
+            {
+              text: 'Ok',
+              onPress(){
+                setShowBox(false)
+              }
+            }
+          ],)
         }}
-      />
+        />
     </View>
   )
 }
