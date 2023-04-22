@@ -9,7 +9,7 @@ import UsersContext from '../context/UsersContext'
 export default props => {
 
   const { state, dispatch }= useContext(UsersContext)
-  
+
   const [, setShowBox] = useState(true)
   
   function confirmUserDeletion(user) {
@@ -43,21 +43,21 @@ export default props => {
       bottomDivider
       onPress={() => props.navigation.navigate('UserForm', user)}
     >
-        <Avatar size='medium' rounded source= {{ uri: user.avatarUrl }}/>
-        <ListItemContent>
-          <ListItem.Title>{user.name}</ListItem.Title>
-          <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
-        </ListItemContent>
-        <Button
-          onPress={() => props.navigation.navigate('UserForm', user)}
-          type='clear'
-          icon={<Icon name='edit' size={25} color='orange'/>}
-        />
-        <Button
-          onPress={() => confirmUserDeletion(user)}
-          type='clear'
-          icon={<Icon name='delete' size={25} color='red'/>}
-        />
+      <Avatar size='medium' rounded source= {{ uri: user.avatarUrl }}/>
+      <ListItemContent>
+        <ListItem.Title>{user.name}</ListItem.Title>
+        <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
+      </ListItemContent>
+      <Button
+        onPress={() => props.navigation.navigate('UserForm', user)}
+        type='clear'
+        icon={<Icon name='edit' size={25} color='orange'/>}
+      />
+      <Button
+        onPress={() => confirmUserDeletion(user)}
+        type='clear'
+        icon={<Icon name='delete' size={25} color='red'/>}
+      />
     </ListItem>
   )
   }

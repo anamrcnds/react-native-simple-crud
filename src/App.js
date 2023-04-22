@@ -6,7 +6,6 @@ import UserList from './views/UserList'
 import UserForm from './views/UserForm'
 import { UsersProvider } from './context/UsersContext'
 
-
 const Stack = createNativeStackNavigator()
 
 export default props => {
